@@ -7,10 +7,10 @@
 #define T 40.0
 #define rho 10.0
 #define L 100.0
-#define iteraciones 300
+#define iteraciones 200
 #define c pow((T/rho),0.5)
 
-void solve(double *u_past , double *u_present , double *u_fut , double r);
+void solve(double *u_past , double *u_present , double *u_fut , double r, double *x);
 
 int main(){
 
@@ -61,13 +61,13 @@ int main(){
     u_present[i]=u_fut[i];
   }
 
-  solve(u_past , u_present , u_fut, r);
+  solve(u_past , u_present , u_fut, r , x);
 
   return 0;
 
 }
 
-void solve(double *u_past , double *u_present , double *u_fut, double r){
+void solve(double *u_past , double *u_present , double *u_fut, double r, double *x){
  
   int i;
   int j;
@@ -85,6 +85,7 @@ void solve(double *u_past , double *u_present , double *u_fut, double r){
   
   for(i=0;i<n_points;i++){
 
-    printf("%f",u_present[i]);
+    printf("%f %f\n",x[i],u_present[i]);
+    
     } 
 }

@@ -7,4 +7,4 @@ cuerda.dat : cuerda
 cuerda : cuerda.c
 	gcc cuerda.c -o cuerda -lm
 clean:
-	rm cuerda cuerda.dat *.png cuerda.gif
+	rm -f cuerda cuerda.dat *.png cuerda.gif
