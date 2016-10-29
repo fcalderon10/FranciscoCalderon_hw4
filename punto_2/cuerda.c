@@ -4,8 +4,11 @@
 
 #define n_points 1000
 #define delta_t 0.0005
-#define c 1.0
-#define iteraciones 350
+#define T 40.0
+#define rho 10.0
+#define L 100.0
+#define iteraciones 300
+#define c pow((T/rho),0.5)
 
 void solve(double *u_past , double *u_present , double *u_fut , double r);
 
@@ -19,19 +22,29 @@ int main(){
   int i;
 
   for(i=0;i<n_points;i++){
-    x[i]=(double)i/n_points;
+    x[i]=i*L/n_points;
   }
 
   double delta_x = x[1]-x[0];
 
   double r=c*delta_t/delta_x;
 
+  
   for(i=0;i<n_points;i++){
 
-    u_init[i]=exp(-((x[i]-0.3)*(x[i]-0.3))/0.01);
+    if(x[i]<=0.8*L) {
 
+    u_init[i]=1.25*x[i]/L;
+    
+    }
+
+    else {
+      u_init[i]=5-(5*x[i]/L);
+    }
   }
 
+  /*Condiciones iniciales*/
+  
   u_init[0]=0.0;
   u_init[n_points-1]=0.0;
 
@@ -55,7 +68,7 @@ int main(){
 }
 
 void solve(double *u_past , double *u_present , double *u_fut, double r){
-
+ 
   int i;
   int j;
 
@@ -69,11 +82,9 @@ void solve(double *u_past , double *u_present , double *u_fut, double r){
       u_present[i] = u_fut[i];
     }
   }
-
+  
   for(i=0;i<n_points;i++){
 
-    printf("%f\n",u_present[i]);
-  }
- 
-
+    printf("%f",u_present[i]);
+    } 
 }
