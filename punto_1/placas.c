@@ -33,7 +33,7 @@ int main(){
   for(j=0;j<l;j++){
 
     V[(int)(((n*(L-l))+L-d)/2)+j]=v/2;
-    V[(int)(((n*(L-l))+L+d)/2)+j]=v/2;
+    V[(int)(((n*(L-l))+L+d)/2)+j]=-v/2;
 
   }
 
@@ -50,9 +50,9 @@ void em(double *V, double *Ex, double *Ey, int n, int N){
 
 for(j=0;j<N;j++){
 
-  for(i=(int)(n*h);i<pow(n,2)-(int)(n*h);i++){
+  for(i=(int)n;i<pow(n,2)-(int)n;i++){
 
-    V[i]=((V[i+(int)(n*h)]+V[i-(int)(n*h)]+V[i-(int)h]+V[i+(int)h])/4);
+    V[i]=((V[i+(int)n]+V[i-(int)n]+V[i-1]+V[i+1])/4);
 
   }
 

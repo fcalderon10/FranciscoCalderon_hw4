@@ -11,4 +11,4 @@ placas: placas.c
 	gcc placas.c -o placas -lm
 
 clean:
-	rm placas placas.dat placas.pdf
+	rm -f placas placas.dat placas.pdf
