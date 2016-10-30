@@ -48,19 +48,19 @@ void em(double *V, double *Ex, double *Ey, int n, int N){
   int i;
   int j;
 
-  for(j=0;j<N;j++){
+for(j=0;j<N;j++){
 
-  for(i=0;i<pow(n,2);i++){
+  for(i=(int)(n*h);i<pow(n,2)-(int)(n*h);i++){
 
     V[i]=((V[i+(int)(n*h)]+V[i-(int)(n*h)]+V[i-(int)h]+V[i+(int)h])/4);
 
   }
 
- }
+  }
 
   for(i=0;i<pow(n,2);i++){
   
-  printf("%f",V[i]);
+  printf("%f\n",V[i]);
   
 }
 
