@@ -80,12 +80,9 @@ void solve(double *u_past , double *u_present , double *u_fut, double r, double 
     for(i=0;i<n_points;i++){
       u_past[i] = u_present [i];
       u_present[i] = u_fut[i];
+      printf("%f\n",u_present[i]);
     }
-  }
-  
-  for(i=0;i<n_points;i++){
-
-    printf("%f %f\n",x[i],u_present[i]);
     
-    } 
+  }
+   
 }

@@ -4,7 +4,11 @@ import os
 
 datos=np.loadtxt('cuerda.dat')
 
-for i in range(len(datos[:,0])):
+datos=np.split(datos,1000)
+
+datos=np.array(datos)
+
+for i in range(200):
     mp.figure(i)
     mp.plot(np.linspace(0,100,1000),datos[:,i])
     mp.xticks(())
@@ -15,7 +19,3 @@ for i in range(len(datos[:,0])):
     mp.close()
 
 os.system("convert -delay 1 -loop 0 *.png cuerda.gif")
-
-mp.figure()
-mp.plot(np.linspace(0,100,1000),datos)
-mp.show()
