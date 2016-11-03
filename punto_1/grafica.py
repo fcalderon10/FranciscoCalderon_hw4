@@ -17,7 +17,7 @@ y=np.linspace(0,5,250)
 
 x, y = np.meshgrid(x, y)
 
-f , em = mp.subplots(2)
-em[0].imshow(datos,interpolation='bicubic')
-em[1].streamplot(x,y,Ex,Ey)
+mp.figure()
+mp.imshow(V)
+mp.streamplot(x,y,Ex,Ey)
 mp.savefig('placas.pdf')
