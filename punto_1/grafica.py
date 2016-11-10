@@ -21,7 +21,6 @@ y=np.linspace(0,250,250)
 
 x, y = np.meshgrid(x, y)
 
-
 mp.figure()
 mp.imshow(V)
 mp.streamplot(x,y,Ex,Ey)

@@ -51,6 +51,7 @@ void em(double *V, double *Ex, double *Ey, int n, int N){
   int j;
   int z;
 
+
 for(z=0;z<N;z++){
   
   for(j=1;j<n-1;j++){
