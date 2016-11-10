@@ -53,20 +53,20 @@ void em(double *V, double *Ex, double *Ey, int n, int N){
 
 
 for(z=0;z<N;z++){
-  
-  for(j=1;j<n-1;j++){
+
+    for(j=1;j<n-1;j++){
 
   for(i=1;i<n;i++){
 
-    if(i+(n*j)<(int)((L-l+(n*(L-d)))/2) /*&& i+(n*j)>(int)(((L-l+(n*(L-d)))/2)+l) && i+(n*j)<(int)(((L-l+(n*(L-d)))/2) + (n*d)) && (i+(n*j))>(int)(((L-l+(n*(L-d)))/2) + (n*d)+l)*/){
+    if((i+(n*j)<(int)((L-l+(n*(L-d)))/2) || i+(n*j)>(int)(((L-l+(n*(L-d)))/2)+l)) && (i+(n*j)<(int)(((L-l+(n*(L-d)))/2) + (n*d)) || (i+(n*j))>(int)(((L-l+(n*(L-d)))/2) + (n*d)+l))){
       
       V[i+(n*j)]=((V[i+1+(n*j)]+V[i-1+(n*j)]+V[i+(n*(j-1))]+V[i+(n*(j+1))])/4);
     
     }
   }
-  }
-  }
-
+    }
+ }
+      
  for(i=0;i<pow(n,2);i++){
 
    Ex[i]=(V[i-1]-V[i+1])/(2*h);
