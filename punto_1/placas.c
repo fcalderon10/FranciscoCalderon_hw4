@@ -39,6 +39,13 @@ int main(){
 
   }
 
+  for(i=0;i<pow(n,2);i++){
+
+   Ex[i]=(V[i-1]-V[i+1])/(2*h);
+   Ey[i]=(V[i-n]-V[i+n])/(2*h);
+   
+ }
+
   em(V,Ex,Ey,n,N);
   
   return 0;
